@@ -1,0 +1,25 @@
+/* |--------------------------------------------------------------------------
+| Navbar Component Specific Styles
+|--------------------------------------------------------------------------
+| Defines styles for the main navigation CTA button using custom CSS variables.
+*/
+
+.btn-accent {
+    padding: 0.75rem 1.5rem; /* py-3 px-6 */
+    font-weight: 600; /* font-semibold */
+    color: white;
+    background-color: var(--color-primary);
+    border-radius: 0.75rem; /* rounded-xl */
+    box-shadow: 0 10px 15px -3px rgba(131, 39, 78, 0.3), 0 4px 6px -2px rgba(131, 39, 78, 0.05);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    border: 2px solid var(--color-accent);
+}
+
+.btn-accent:hover {
+    background-color: #6a1f40; /* Slightly darker primary on hover */
+    transform: translateY(-2px);
+}
+
+/* | NOTE: The mobile menu responsiveness is handled primarily by Tailwind 
+| utility classes (lg:hidden, max-h-96, etc.) in the Navbar.jsx file.
+*/

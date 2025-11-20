@@ -1,0 +1,57 @@
+/* |--------------------------------------------------------------------------
+| Services Section Specific Styles
+|--------------------------------------------------------------------------
+| Defines the custom grid layout and the card hover effect.
+*/
+
+.section-label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    margin-bottom: 0.75rem;
+    letter-spacing: 0.25em;
+    text-align: center;
+}
+
+.section-main-title {
+    font-size: 2.5rem; 
+    font-weight: 800;
+    color: var(--color-primary);
+    margin-bottom: 4rem; 
+    text-align: center;
+}
+
+/* Responsive Grid Definition */
+.services-grid {
+    display: grid;
+    gap: 2rem; /* gap-8 */
+    grid-template-columns: repeat(1, minmax(0, 1fr)); /* Default: 1 column (Mobile) */
+}
+
+@media (min-width: 768px) { /* md breakpoint */
+    .services-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr)); /* Tablet: 2 columns */
+    }
+}
+
+@media (min-width: 1024px) { /* lg breakpoint */
+    .services-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr)); /* Desktop: 4 columns */
+    }
+}
+
+/* Service Card Style */
+.service-card {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 1rem; /* rounded-2xl */
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* shadow-xl */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #f3f4f6;
+}
+
+.service-card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.15), 0 8px 10px -6px rgba(0, 0, 0, 0.1); /* hover:shadow-2xl */
+}

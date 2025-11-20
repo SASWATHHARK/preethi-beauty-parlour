@@ -1,0 +1,28 @@
+/* |--------------------------------------------------------------------------
+| Tailwind CSS Directives & Global Reset
+|--------------------------------------------------------------------------
+| This file is kept minimal, focused only on core setup and global imports.
+*/
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    --color-primary: #83274E; /* Deep Berry/Wine */
+    --color-accent: #D4AF37; /* Gold/Bronze */
+    --color-background: #FDFDFD; 
+    --color-text: #333333;
+}
+
+/* Base HTML/Body styles */
+html {
+    scroll-behavior: smooth;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    color: var(--color-text);
+    background-color: var(--color-background);
+    overflow-x: hidden; 
+}
+

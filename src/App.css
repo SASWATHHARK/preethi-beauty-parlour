@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Optional: Set a default font or body style */
+body {
+    font-family: 'Inter', sans-serif; /* Assuming Inter font for aesthetics */
+    margin: 0;
+    padding: 0;
+}

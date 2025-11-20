@@ -1,0 +1,15 @@
+/* |--------------------------------------------------------------------------
+| Hero Section Specific Styles
+|--------------------------------------------------------------------------
+| Defines custom font effects or large-scale layout overrides if needed.
+| Most styling relies on Tailwind utilities in the component JSX.
+*/
+
+/* * NOTE: The Hero Section is fully responsive using Tailwind utility classes 
+* (lg:flex-row, text-5xl md:text-6xl lg:text-7xl). 
+* A custom CSS file is created here for completeness and future custom styles. 
+*/
+
+.hero-section {
+    background-color: var(--color-background);
+}
