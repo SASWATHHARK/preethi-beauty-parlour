@@ -1,45 +1,40 @@
 import React, { useState } from 'react';
 import { Sparkles, Menu, X } from 'lucide-react';
+import './Navbar.css';
 
 const Navbar = ({ sections, scrollToRef }) => {
   const [isOpen, setIsOpen] = useState(false);
-
-  
   const bookNowRef = sections.find(s => s.name === 'Book Now')?.ref;
 
   return (
-   
     <header className="navbar-header">
       <div className="navbar-container">
         <div className="navbar-content">
-          
-          {/* Logo / Brand Name */}
+          {/* Brand */}
           <div className="navbar-brand-wrapper">
             <Sparkles className="navbar-icon" />
-            <span className="navbar-logo-text">
-              Preethi's Parlour
-            </span>
+            <span className="navbar-logo-text">Preethi's Parlour</span>
           </div>
-          
-          {/* Navigation Links (Desktop) */}
+
+          {/* Desktop Links */}
           <nav className="navbar-links-desktop">
-            {/* Filter out 'Book Now' as it's typically a separate CTA button */}
-            {sections.filter(s => s.name !== 'Book Now').map(({ name, ref }) => (
-              <button
-                key={name}
-                onClick={() => scrollToRef(ref)}
-                className="navbar-link-button"
-              >
-                {name}
-              </button>
-            ))}
+            {sections
+              .filter(s => s.name !== 'Book Now')
+              .map(({ name, ref }) => (
+                <button
+                  key={name}
+                  onClick={() => scrollToRef(ref)}
+                  className="navbar-link-button"
+                >
+                  {name}
+                </button>
+              ))}
           </nav>
-          
-          {/* Call to Action Button (Desktop Only) */}
-          <div className="hidden md:block">
+
+          {/* CTA Button (Desktop) */}
+          <div className="navbar-cta-desktop">
             <button
               onClick={() => scrollToRef(bookNowRef)}
-              // Custom button class for CTA: btn-small-accent
               className="btn btn-small-accent"
             >
               Book Now
@@ -53,23 +48,21 @@ const Navbar = ({ sections, scrollToRef }) => {
             aria-expanded={isOpen}
             aria-controls="mobile-menu"
           >
-            {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            {isOpen ? <X className="menu-icon" /> : <Menu className="menu-icon" />}
           </button>
         </div>
 
-        {/* Mobile Navigation Menu (visible when isOpen is true) */}
-        <div 
+        {/* Mobile Links */}
+        <div
           id="mobile-menu"
           className={`navbar-links-mobile ${isOpen ? 'open' : ''}`}
-          // Use style for transition effect
-          style={{ maxHeight: isOpen ? '500px' : '0', opacity: isOpen ? 1 : 0 }}
         >
           {sections.map(({ name, ref }) => (
             <button
               key={name}
               onClick={() => {
                 scrollToRef(ref);
-                setIsOpen(false); // Close menu on click
+                setIsOpen(false);
               }}
               className="navbar-link-button-mobile"
             >
@@ -77,7 +70,6 @@ const Navbar = ({ sections, scrollToRef }) => {
             </button>
           ))}
         </div>
-        
       </div>
     </header>
   );

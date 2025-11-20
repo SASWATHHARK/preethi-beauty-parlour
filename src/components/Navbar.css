@@ -1,0 +1,152 @@
+/* Navbar.css
+   Tailwind-free, mobile-responsive navbar with CTA
+*/
+
+:root {
+  --color-primary: #e76f51;
+  --color-bg-navbar: #ffffff;
+  --color-text: #1f2937;
+  --color-muted: #6b7280;
+  --shadow-soft: 0 4px 14px rgba(0, 0, 0, 0.05);
+}
+
+/* Header container */
+.navbar-header {
+  background-color: var(--color-bg-navbar);
+  box-shadow: var(--shadow-soft);
+  padding: 1rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+/* Layout wrapper */
+.navbar-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Flex layout */
+.navbar-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Brand section */
+.navbar-brand-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.navbar-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  color: var(--color-primary);
+}
+
+.navbar-logo-text {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+/* Desktop nav links */
+.navbar-links-desktop {
+  display: flex;
+  gap: 1.25rem;
+}
+
+.navbar-link-button {
+  background: none;
+  border: none;
+  font-size: 1rem;
+  color: var(--color-text);
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.navbar-link-button:hover {
+  color: var(--color-primary);
+}
+
+/* CTA button (Book Now) desktop only */
+.navbar-cta-desktop {
+  display: block;
+}
+
+.btn.btn-small-accent {
+  padding: 0.5rem 1rem;
+  background-color: var(--color-primary);
+  color: white;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.btn.btn-small-accent:hover {
+  background-color: #d65b47;
+}
+
+/* Mobile menu button */
+.menu-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.4rem;
+  display: none;
+}
+
+.menu-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  color: var(--accent);
+}
+
+/* Mobile nav (collapsed by default) */
+.navbar-links-mobile {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  transition: all 0.4s ease;
+}
+
+.navbar-links-mobile.open {
+  max-height: 500px;
+  opacity: 1;
+  margin-top: 0.75rem;
+}
+
+.navbar-link-button-mobile {
+  background: none;
+  border: none;
+  font-size: 1rem;
+  padding: 0.75rem;
+  text-align: left;
+  color: var(--color-text);
+  cursor: pointer;
+  width: 100%;
+  transition: background 0.2s;
+}
+
+.navbar-link-button-mobile:hover {
+  background-color: rgba(0, 0, 0, 0.03);
+}
+
+/* Responsive behaviors */
+@media (max-width: 768px) {
+  .navbar-links-desktop,
+  .navbar-cta-desktop {
+    display: none;
+  }
+
+  .menu-button {
+    display: block;
+  }
+}

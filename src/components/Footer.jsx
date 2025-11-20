@@ -1,6 +1,6 @@
 import React from 'react';
 import { Mail, Phone, MapPin, Sparkles } from 'lucide-react';
-
+import './Footer.css';
 const Footer = () => {
   return (
     // Replaced bg-gray-900 text-white py-12 with the custom .footer class

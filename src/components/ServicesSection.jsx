@@ -1,11 +1,9 @@
 import React from 'react';
 import { Scissors, Zap, Heart, Sparkle } from 'lucide-react';
+import './ServicesSection.css';
 
-// Service Card component refactored to use custom CSS classes
 const ServiceCard = ({ icon: Icon, title, description }) => (
-    // Replaced all utility classes with 'service-card' for styling, hover, and shadow effects.
     <div className="service-card">
-        {/* 'service-icon' handles size, color, and centering */}
         <Icon className="service-icon" />
         <h3 className="service-title">{title}</h3>
         <p className="service-description">{description}</p>
@@ -21,19 +19,13 @@ const ServicesSection = React.forwardRef((props, ref) => {
     ];
 
     return (
-        // Using 'section-padding' and utility classes for background/border
-        <section 
-            ref={ref} 
-            className="section-padding bg-background border-t border-gray-100" 
-        >
-            {/* Using 'container' and 'text-center' */}
-            <div className="container text-center">
-                {/* Custom label style: text-primary-label */}
+        <section ref={ref} id="services" className="services-section">
+            <div className="services-container">
                 <h2 className="text-primary-label">Our Specialties</h2>
-                {/* Custom large title style: section-main-title */}
-                <h3 className="section-main-title">Discover Our Full Range of Services</h3>
-                
-                {/* Custom responsive grid style: services-grid (handles 1/2/4 columns) */}
+                <h3 className="section-main-title">
+                    Discover Our Full Range of Services
+                </h3>
+
                 <div className="services-grid">
                     {services.map((service, index) => (
                         <ServiceCard key={index} {...service} />

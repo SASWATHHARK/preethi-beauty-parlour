@@ -1,5 +1,6 @@
 import React from 'react';
 import { ClipboardList, X } from 'lucide-react';
+import './BookingSection.css';
 
 const BookingSection = React.forwardRef((props, ref) => {
   // IMPORTANT: Replace this with your actual Google Form 'embed' URL

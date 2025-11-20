@@ -1,0 +1,37 @@
+/* src/styles/_variables.css */
+:root{
+  /* Layout & neutrals */
+  --bg: #0f1724;
+  --card: #0b1220;
+  --muted: #9aa4b2;
+  --white: #ffffff;
+
+  /* Primary pink palette (brand accents) */
+  --accent: #ff4f9a;     /* primary accent (buttons, icons, highlights) */
+  --accent-2: #ff8fc2;   /* lighter/secondary accent */
+  --accent-3: #f9a8d4;   /* soft/pastel pink for backgrounds or subtle tints */
+
+  /* Optional alternate darker pink for text emphasis */
+  --accent-dark: #be185d; /* for small text emphasis / deeper contrast */
+
+  /* Typography */
+  --font-sans: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  --base-font-size: 16px;
+
+  /* Spacing scale */
+  --space-xxs: 4px;
+  --space-xs: 8px;
+  --space-sm: 12px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+
+  /* Border radius */
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+
+  /* Shadows / transitions */
+  --shadow-soft: 0 8px 24px rgba(2,6,23,0.25);
+  --transition-fast: 180ms ease;
+}

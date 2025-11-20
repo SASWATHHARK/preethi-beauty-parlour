@@ -1,0 +1,191 @@
+/* Footer.css
+   Professional, plain-CSS styling for Footer.jsx.
+   Place this file at: src/components/Footer.css
+*/
+
+/* Fallback variables — safe to include if you already have :root vars elsewhere */
+:root{
+  --color-bg-footer: #0d1116;
+  --color-panel: rgba(255,255,255,0.03);
+  --color-primary: #e76f51;      /* accent */
+  --color-muted: #9aa4b2;       /* secondary text */
+  --color-white: #ffffff;
+  --container-max: 1200px;
+  --gap-sm: 12px;
+  --gap-md: 20px;
+  --gap-lg: 32px;
+  --radius-md: 10px;
+  --shadow-soft: 0 8px 24px rgba(2,6,23,0.65);
+  --transition-fast: 180ms ease;
+}
+
+/* Root footer shell */
+.footer {
+  background: var(--color-bg-footer);
+  color: var(--color-white);
+  padding: 48px 16px 24px;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  line-height: 1.45;
+}
+
+/* Container: centered with sensible max-width and horizontal padding */
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 16px;
+  padding-right: 16px;
+  box-sizing: border-box;
+}
+
+/* Grid layout for footer columns */
+.footer-grid-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--gap-lg);
+  align-items: start;
+}
+
+/* On medium and larger screens use 4 columns */
+@media (min-width: 880px) {
+  .footer-grid-layout {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: var(--gap-lg);
+  }
+}
+
+/* Brand block */
+.footer .flex {
+  gap: 12px;
+}
+
+.footer .flex > .h-6,
+.footer svg {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/* Name / brand text */
+.footer .ml-2,
+.footer .brand-name {
+  margin-left: 0.5rem;
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--color-white);
+}
+
+/* Muted paragraph text */
+.footer-text-secondary {
+  color: var(--color-muted);
+  font-size: 0.95rem;
+  margin-top: 6px;
+  max-width: 36ch; /* keep brand description readable */
+}
+
+/* Headings inside footer */
+.footer-heading {
+  font-size: 1.05rem;
+  margin: 0 0 10px;
+  color: var(--color-white);
+  font-weight: 700;
+}
+
+/* Link lists / contact lists spacing */
+.footer-links-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* Generic link style */
+.footer-link {
+  color: var(--color-muted);
+  text-decoration: none;
+  font-size: 0.98rem;
+  transition: color var(--transition-fast), transform var(--transition-fast);
+}
+.footer-link:hover,
+.footer-link:focus {
+  color: var(--color-white);
+  transform: translateX(4px);
+  outline: none;
+}
+
+/* Contact rows (icon + text) */
+.footer .footer-links-list p,
+.footer .footer-links-list li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.98rem;
+  color: var(--color-muted);
+  margin: 0;
+  padding: 0;
+}
+
+/* Optional: style the lucide icons inside footer (when not colored inline) */
+.footer svg {
+  width: 18px;
+  height: 18px;
+  color: var(--color-primary); /* default icon color */
+  flex-shrink: 0;
+}
+
+/* If inline styles set icon color, they will remain — this is a safe default fallback */
+
+/* Footer bottom row with top border */
+.footer-bottom {
+  margin-top: 28px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(255,255,255,0.04);
+  text-align: center;
+  color: rgba(255,255,255,0.6);
+  font-size: 0.88rem;
+}
+
+/* Small devices adjustments */
+@media (max-width: 600px) {
+  .footer {
+    padding: 32px 12px 20px;
+  }
+  .footer .brand-name {
+    font-size: 1.25rem;
+  }
+  .footer-text-secondary {
+    max-width: 100%;
+    font-size: 0.94rem;
+  }
+}
+
+/* Accessibility focus states */
+.footer a:focus,
+.footer-button:focus,
+.footer-link:focus {
+  outline: 3px solid rgba(231,111,81,0.16);
+  outline-offset: 2px;
+}
+
+/* Subtle card-like background for the contact list if needed (optional) */
+.footer .panel {
+  background: var(--color-panel);
+  padding: 12px;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-soft);
+}
+
+/* Tiny polish: ensure consistent spacing when icons sit slightly higher */
+.footer .footer-links-list svg {
+  margin-top: 0.12rem;
+}
+
+/* Helper: if you want the brand cell to occupy slightly more visual width */
+.footer .brand-block {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}

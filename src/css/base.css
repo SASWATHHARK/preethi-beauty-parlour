@@ -1,0 +1,43 @@
+/* src/styles/_base.css */
+html { font-size: var(--base-font-size); box-sizing: border-box; }
+*, *::before, *::after { box-sizing: inherit; }
+body {
+  margin:0;
+  font-family: var(--font-sans);
+  color: var(--white);
+  background: linear-gradient(180deg, var(--bg) 0%, #071023 100%);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  line-height: 1.45;
+}
+
+/* container */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--space-md);
+  padding-right: var(--space-md);
+}
+
+/* utility */
+.flex { display:flex; }
+.center { display:flex; align-items:center; justify-content:center; }
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  padding: calc(var(--space-sm)) calc(var(--space-md));
+  border-radius: var(--radius-md);
+  background: var(--accent);
+  color: var(--white);
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+}
+.btn.secondary { background: transparent; border: 1px solid rgba(255,255,255,0.08); color: var(--white); }
+
+@media (max-width: 768px) {
+  .container { padding-left: var(--space-sm); padding-right: var(--space-sm); }
+}
