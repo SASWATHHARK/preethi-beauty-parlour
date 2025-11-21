@@ -132,3 +132,20 @@
   background: linear-gradient(90deg, rgba(255,79,154,0.06), rgba(255,79,154,0.02));
   border: 1px dashed rgba(0,0,0,0.04);
 }
+.instagram-icon {
+  width: 22px;
+  height: 22px;
+  margin-right: 8px;
+  color: #E1306C; /* classic Instagram pink */
+}
+.footer-social-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #fff;
+  font-weight: 600;
+  margin-top: 6px;
+}
+.footer-social-link:hover {
+  opacity: 0.85;
+}

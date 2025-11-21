@@ -1,5 +1,5 @@
 import React from 'react';
-import { Mail, Phone, MapPin, Sparkles } from 'lucide-react';
+import { Mail, Phone, MapPin, Sparkles, Instagram } from 'lucide-react';
 import './Footer.css';
 
 const Footer = () => {
@@ -27,7 +27,7 @@ const Footer = () => {
           <div className="footer-list">
             <p className="footer-text">
               <MapPin className="footer-small-icon" />
-              14/29 First Cross Street Valayankadu v.o.c nagar Tirupur - 641603
+              14/29 First Cross Street Valayankadu V.O.C Nagar, Tirupur - 641603
             </p>
 
             <p className="footer-text">
@@ -57,10 +57,25 @@ const Footer = () => {
           <h4 className="footer-heading">Hours</h4>
           <ul className="footer-list">
             <li className="footer-text">Mon - Fri: 10:00 AM - 8:30 PM</li>
-            <li className="footer-text">Saturday and Sunday: 10:00 AM - 6:00 PM</li>
+            <li className="footer-text">Saturday & Sunday: 10:00 AM - 6:00 PM</li>
           </ul>
         </div>
 
+      </div>
+
+      {/* Social Media Section */}
+      <div style={{ marginTop: '1.8rem', textAlign: 'left' }}>
+        <h4 className="footer-heading">Follow Us</h4>
+
+        <a
+          href="https://www.instagram.com/_makeup_by_preethi_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+          target="_blank"
+          rel="noopener noreferrer"
+          className="footer-social-link"
+        >
+          <Instagram className="instagram-icon" />
+          <span>@_makeup_by_preethi_</span>
+        </a>
       </div>
 
       {/* Footer Bottom */}

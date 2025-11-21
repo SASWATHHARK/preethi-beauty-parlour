@@ -1,30 +1,17 @@
 // src/components/GallerySection.jsx
 import React from 'react';
 import { Camera, Film } from 'lucide-react';
+import imgHair from '../assets/hairstyled.jpg';
+import imgFacial from '../assets/preview.jpg';
+import imgMehendi from '../assets/mehendi.jpeg';
+import imgSaree from '../assets/saree-draping.jpg';
+import imgBridal from '../assets/bridal-look.webp';
 import './GallerySection.css';
 
-/*
-  Two ways to supply images:
-  1) Import images at top (uncomment and use)
-     import img1 from '../assets/hair1.jpg';
-     import img2 from '../assets/facial1.jpg';
-     ...
-  2) Or use file paths (strings) in the `images` array below.
-     Example file path included from your local upload for testing:
-     '/mnt/data/fddca9b7-e399-43af-acb2-3b59a44dbba8.png'
-*/
-
 const GallerySection = React.forwardRef((props, ref) => {
-  // Replace these with your actual image imports or public paths
-  const images = [
-    '/src/assets/hairstyled.jpg', // example (replace)
-    '/src/assets/preview.jpg',                      // example relative path
-    '/src/assets/mehendi.jpeg',
-    '/src/assets/saree-draping.jpg',
-    '/src/assets/bridal-look.webp'
-  ];
+  // Use imported images — Vite will resolve and copy them for you
+  const images = [imgHair, imgFacial, imgMehendi, imgSaree, imgBridal];
 
-  // Optional labels to show on each slide
   const labels = [
     'Hair Styled',
     'Facial & Skin Care',
@@ -37,16 +24,39 @@ const GallerySection = React.forwardRef((props, ref) => {
   const count = images.length;
   const autoplayRef = React.useRef(null);
 
-  // autoplay (optional)
+  // autoplay (pause on hover)
   React.useEffect(() => {
     autoplayRef.current = setInterval(() => {
-      setIndex(prev => (prev + 1) % count);
+      setIndex((s) => (s + 1) % count);
     }, 4500);
 
     return () => clearInterval(autoplayRef.current);
   }, [count]);
 
-  // keyboard left/right
+  const stopAutoplay = () => clearInterval(autoplayRef.current);
+  const restartAutoplay = () => {
+    clearInterval(autoplayRef.current);
+    autoplayRef.current = setInterval(() => {
+      setIndex((s) => (s + 1) % count);
+    }, 4500);
+  };
+
+  const prev = () => {
+    stopAutoplay();
+    setIndex((i) => (i - 1 + count) % count);
+  };
+
+  const next = () => {
+    stopAutoplay();
+    setIndex((i) => (i + 1) % count);
+  };
+
+  const goTo = (i) => {
+    stopAutoplay();
+    setIndex(i);
+  };
+
+  // keyboard navigation
   React.useEffect(() => {
     const onKey = (e) => {
       if (e.key === 'ArrowLeft') prev();
@@ -54,20 +64,7 @@ const GallerySection = React.forwardRef((props, ref) => {
     };
     window.addEventListener('keydown', onKey);
     return () => window.removeEventListener('keydown', onKey);
-  });
-
-  const prev = () => {
-    clearInterval(autoplayRef.current);
-    setIndex(i => (i - 1 + count) % count);
-  };
-  const next = () => {
-    clearInterval(autoplayRef.current);
-    setIndex(i => (i + 1) % count);
-  };
-  const goTo = (i) => {
-    clearInterval(autoplayRef.current);
-    setIndex(i);
-  };
+  }, []); // no deps — attach once
 
   return (
     <section ref={ref} id="gallery" className="gallery-section">
@@ -75,12 +72,32 @@ const GallerySection = React.forwardRef((props, ref) => {
         <h2 className="text-primary-label">Inspiration</h2>
         <h3 className="gallery-heading">Visual Showcase of Our Work</h3>
 
-        <div className="slider" role="region" aria-roledescription="carousel" aria-label="Gallery slides">
-          {/* Slides */}
-          <div className="slides-wrapper" style={{ transform: `translateX(-${index * 100}%)` }}>
+        <div
+          className="slider"
+          role="region"
+          aria-roledescription="carousel"
+          aria-label="Gallery slides"
+          onMouseEnter={stopAutoplay}
+          onMouseLeave={restartAutoplay}
+        >
+          {/* slides track */}
+          <div
+            className="slides-wrapper"
+            style={{ transform: `translateX(-${index * 100}%)` }}
+          >
             {images.map((src, i) => (
-              <div className="slide" key={i} aria-roledescription="slide" aria-label={`${i+1} of ${count}`}>
-                <img src={src} alt={labels[i] || `Gallery image ${i+1}`} className="slide-image" />
+              <div
+                className="slide"
+                key={i}
+                role="group"
+                aria-roledescription="slide"
+                aria-label={`${i + 1} of ${count} — ${labels[i]}`}
+              >
+                <img
+                  src={src}
+                  alt={labels[i] || `Gallery ${i + 1}`}
+                  className="slide-image"
+                />
                 <div className="slide-overlay">
                   <div className="slide-label">{labels[i]}</div>
                 </div>
@@ -88,28 +105,31 @@ const GallerySection = React.forwardRef((props, ref) => {
             ))}
           </div>
 
-          {/* Controls */}
-          <button className="slider-btn prev" onClick={prev} aria-label="Previous slide">‹</button>
-          <button className="slider-btn next" onClick={next} aria-label="Next slide">›</button>
+          {/* prev/next buttons */}
+          <button className="slider-btn prev" onClick={prev} aria-label="Previous slide">
+            ‹
+          </button>
+          <button className="slider-btn next" onClick={next} aria-label="Next slide">
+            ›
+          </button>
 
-          {/* Dots */}
-          <div className="slider-dots" role="tablist">
+          {/* dots */}
+          <div className="slider-dots" role="tablist" aria-label="Slide navigation">
             {images.map((_, i) => (
               <button
                 key={i}
                 className={`dot ${i === index ? 'active' : ''}`}
                 onClick={() => goTo(i)}
-                aria-label={`Go to slide ${i+1}`}
                 aria-selected={i === index}
                 role="tab"
+                aria-label={`Go to slide ${i + 1}`}
               />
             ))}
           </div>
         </div>
 
-        {/* grid preview below (optional) */}
+        {/* optional small preview grid */}
         <div className="gallery-grid-layout" aria-hidden="true">
-          {/* optional: keep the previous grid layout as preview thumbnails */}
           {labels.map((lbl, idx) => (
             <article key={idx} className="gallery-card small">
               <div className="gallery-card-overlay small">
