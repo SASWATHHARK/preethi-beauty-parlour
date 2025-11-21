@@ -1,191 +1,134 @@
-/* Footer.css
-   Professional, plain-CSS styling for Footer.jsx.
-   Place this file at: src/components/Footer.css
-*/
-
-/* Fallback variables — safe to include if you already have :root vars elsewhere */
-:root{
-  --color-bg-footer: #0d1116;
-  --color-panel: rgba(255,255,255,0.03);
-  --color-primary: #e76f51;      /* accent */
-  --color-muted: #9aa4b2;       /* secondary text */
-  --color-white: #ffffff;
-  --container-max: 1200px;
-  --gap-sm: 12px;
-  --gap-md: 20px;
-  --gap-lg: 32px;
-  --radius-md: 10px;
-  --shadow-soft: 0 8px 24px rgba(2,6,23,0.65);
-  --transition-fast: 180ms ease;
+:root {
+  --accent: #ff4f9a;
+  --footer-bg: #0f0f17;
+  --footer-text: #d1d5db;
+  --footer-heading: #ffffff;
 }
 
-/* Root footer shell */
+/* FOOTER WRAPPER */
 .footer {
-  background: var(--color-bg-footer);
-  color: var(--color-white);
-  padding: 48px 16px 24px;
-  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-  line-height: 1.45;
-}
-
-/* Container: centered with sensible max-width and horizontal padding */
-.container {
+  background: var(--footer-bg);
+  padding: 4rem 0 2.5rem;
+  color: var(--footer-text);
   width: 100%;
-  max-width: var(--container-max);
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 16px;
-  padding-right: 16px;
-  box-sizing: border-box;
 }
 
-/* Grid layout for footer columns */
-.footer-grid-layout {
+/* CONTAINER */
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* GRID LAYOUT */
+.footer-grid {
   display: grid;
-  grid-template-columns: 1fr;
-  gap: var(--gap-lg);
-  align-items: start;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 2.5rem;
 }
 
-/* On medium and larger screens use 4 columns */
-@media (min-width: 880px) {
-  .footer-grid-layout {
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    gap: var(--gap-lg);
-  }
+/* BRAND SECTION */
+.footer-brand-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
 }
 
-/* Brand block */
-.footer .flex {
-  gap: 12px;
+.footer-icon {
+  width: 26px;
+  height: 26px;
+  color: var(--accent);
 }
 
-.footer .flex > .h-6,
-.footer svg {
-  display: inline-block;
+.footer-brand-text {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #fff;
+  margin-left: 0.6rem;
+}
+
+/* TEXT */
+.footer-text {
+  font-size: 0.95rem;
+  color: var(--footer-text);
+  line-height: 1.6;
+}
+
+/* HEADING */
+.footer-heading {
+  color: var(--footer-heading);
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+/* LIST */
+.footer-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+/* ICONS */
+.footer-small-icon {
+  width: 18px;
+  height: 18px;
+  margin-right: 0.5rem;
+  color: var(--accent);
   vertical-align: middle;
 }
 
-/* Name / brand text */
-.footer .ml-2,
-.footer .brand-name {
-  margin-left: 0.5rem;
-  font-size: 1.5rem;
-  font-weight: 800;
-  letter-spacing: -0.02em;
-  color: var(--color-white);
-}
-
-/* Muted paragraph text */
-.footer-text-secondary {
-  color: var(--color-muted);
-  font-size: 0.95rem;
-  margin-top: 6px;
-  max-width: 36ch; /* keep brand description readable */
-}
-
-/* Headings inside footer */
-.footer-heading {
-  font-size: 1.05rem;
-  margin: 0 0 10px;
-  color: var(--color-white);
-  font-weight: 700;
-}
-
-/* Link lists / contact lists spacing */
-.footer-links-list {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-/* Generic link style */
+/* LINKS */
 .footer-link {
-  color: var(--color-muted);
+  color: var(--footer-text);
   text-decoration: none;
-  font-size: 0.98rem;
-  transition: color var(--transition-fast), transform var(--transition-fast);
-}
-.footer-link:hover,
-.footer-link:focus {
-  color: var(--color-white);
-  transform: translateX(4px);
-  outline: none;
+  font-size: 0.95rem;
+  transition: color 0.25s ease;
 }
 
-/* Contact rows (icon + text) */
-.footer .footer-links-list p,
-.footer .footer-links-list li {
+.footer-link:hover {
+  color: var(--accent);
+}
+
+/* BOTTOM */
+.footer-bottom {
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  font-size: 0.9rem;
+  text-align: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+}
+/* PREVIEW IMAGE */
+.findus-image-preview {
+  margin-top: 1rem;
+  width: 100%;
+  border-radius: 10px;
+  overflow: hidden;
+  background: linear-gradient(180deg, rgba(255,79,154,0.06), rgba(255,79,154,0.02));
+  display: block;
+  min-height: 120px; /* ensure there is visible area even if no image */
+}
+
+/* actual image */
+.findus-image-preview img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+/* placeholder when image missing */
+.findus-image-preview.placeholder {
   display: flex;
   align-items: center;
-  gap: 10px;
-  font-size: 0.98rem;
-  color: var(--color-muted);
-  margin: 0;
-  padding: 0;
+  justify-content: center;
+  padding: 1.25rem;
 }
 
-/* Optional: style the lucide icons inside footer (when not colored inline) */
-.footer svg {
-  width: 18px;
-  height: 18px;
-  color: var(--color-primary); /* default icon color */
-  flex-shrink: 0;
-}
-
-/* If inline styles set icon color, they will remain — this is a safe default fallback */
-
-/* Footer bottom row with top border */
-.footer-bottom {
-  margin-top: 28px;
-  padding-top: 18px;
-  border-top: 1px solid rgba(255,255,255,0.04);
-  text-align: center;
-  color: rgba(255,255,255,0.6);
-  font-size: 0.88rem;
-}
-
-/* Small devices adjustments */
-@media (max-width: 600px) {
-  .footer {
-    padding: 32px 12px 20px;
-  }
-  .footer .brand-name {
-    font-size: 1.25rem;
-  }
-  .footer-text-secondary {
-    max-width: 100%;
-    font-size: 0.94rem;
-  }
-}
-
-/* Accessibility focus states */
-.footer a:focus,
-.footer-button:focus,
-.footer-link:focus {
-  outline: 3px solid rgba(231,111,81,0.16);
-  outline-offset: 2px;
-}
-
-/* Subtle card-like background for the contact list if needed (optional) */
-.footer .panel {
-  background: var(--color-panel);
-  padding: 12px;
-  border-radius: var(--radius-md);
-  box-shadow: var(--shadow-soft);
-}
-
-/* Tiny polish: ensure consistent spacing when icons sit slightly higher */
-.footer .footer-links-list svg {
-  margin-top: 0.12rem;
-}
-
-/* Helper: if you want the brand cell to occupy slightly more visual width */
-.footer .brand-block {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+.findus-image-preview .placeholder-shape {
+  width: 100%;
+  height: 120px;
+  border-radius: 8px;
+  background: linear-gradient(90deg, rgba(255,79,154,0.06), rgba(255,79,154,0.02));
+  border: 1px dashed rgba(0,0,0,0.04);
 }

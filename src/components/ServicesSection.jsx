@@ -12,9 +12,9 @@ const ServiceCard = ({ icon: Icon, title, description }) => (
 
 const ServicesSection = React.forwardRef((props, ref) => {
     const services = [
-        { icon: Scissors, title: "Hair Styling & Colour", description: "From expert cuts to vibrant, custom color blends using premium products." },
+        { icon: Scissors, title: "Hair Styling ", description: "Soft, elegant hairstyles crafted to enhance your natural beauty with a flawless, polished finish." },
         { icon: Zap, title: "Facials & Skin Care", description: "Rejuvenating treatments, deep cleansing, and personalized anti-aging therapies." },
-        { icon: Heart, title: "Manicure & Pedicure", description: "Luxury hand and foot care, including gel polish, spa treatments, and nail art." },
+        { icon: Heart, title: "Mehendi", description: "Modern and traditional mehendi patterns blended with elegance for all celebrations and events." },
         { icon: Sparkle, title: "Bridal & Party Makeup", description: "Flawless, long-lasting looks for your special occasions, tailored to perfection." },
     ];
 

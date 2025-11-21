@@ -1,170 +1,111 @@
-/* =========================================================
-   BookingSection.css
-   Pure CSS styling for BookingSection.jsx
-   ========================================================= */
+/* BookingSection.css - improved form embed styling, card, close button */
 
-/* Section wrapper */
-.section-padding {
-  padding-top: 5rem;
-  padding-bottom: 5rem;
-  background-color: white;
+:root{
+  --accent: var(--accent, #ff4f9a);
+  --muted: var(--color-muted, #666);
+  --card-border: #f3f4f6;
+  --radius-lg: var(--radius-lg, 20px);
 }
 
-/* Centered container */
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 16px;
-  text-align: center;
-}
+/* section */
+.section-padding { padding:5rem 0; background:#fff; }
+.container { max-width:1200px; margin:0 auto; padding:0 1rem; text-align:center; }
 
-/* ---------------------------------------------------------
-   HEADINGS
-   --------------------------------------------------------- */
-.text-primary-label {
-  font-size: 0.9rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  color: var(--accent);
-  background-color: var(--accent);
-  margin-bottom: 0.5rem;
-}
+/* heading */
+.text-primary-label{ color:var(--accent); font-weight:700; letter-spacing:.12em; text-transform:uppercase; margin-bottom:.4rem; }
+.heading-primary{ font-size:2.25rem; font-weight:800; margin-bottom:1rem; color:#111827; }
 
-.heading-primary {
-  font-size: 2.3rem;
-  font-weight: 800;
-  color: #222;
-  margin-bottom: 2.5rem;
-}
+/* CTA button (already exists but reinforce style) */
 
-.mb-10 {
-  margin-bottom: 2.5rem;
-}
-
-/* Paragraph description */
-.text-lg {
-  font-size: 1.15rem;
-  line-height: 1.6;
-  color: #666;
-}
-
-/* ---------------------------------------------------------
-   BUTTON (MAIN CTA)
-   --------------------------------------------------------- */
-
-.btn-primary {
-  color: var(--accent);
-background-color: var(--accent);
-}
-
+/* CTA button (primary) */
+.btn-primary,
 .btn-large-pink {
+  background: linear-gradient(180deg, var(--accent), var(--accent-2));
+  color: #ffffff;                     /* white text so it is visible */
+  border-radius: 12px;
+  padding: 0.9rem 1.6rem;
+  border: none;
   display: inline-flex;
   align-items: center;
-  padding: 1rem 2rem;
-  font-size: 1.25rem;
-  color: white;
-  background-color: var(--color-primary);
-  border-radius: 12px;
-  border: none;
-  cursor: pointer;
-  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
-  transition: all 0.3s ease;
-}
-
-.btn-large-pink:hover {
-  background-color: #d9588f;
-  transform: scale(1.05);
-}
-
-.btn-large-pink svg {
-  margin-right: 0.75rem;
-}
-
-/* ---------------------------------------------------------
-   GOOGLE FORM CONTAINER
-   --------------------------------------------------------- */
-
-.form-embed-container {
-  margin-top: 3rem;
-  margin-left: auto;
-  margin-right: auto;
-  width: 100%;
-  max-width: 80rem;
-  border: 4px solid #f3f4f6;
-  border-radius: 1rem;
-  overflow: hidden;
-  background-color: white;
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
-              0 10px 10px -5px rgba(0, 0, 0, 0.04);
-  transition: all 0.5s ease;
-}
-
-/* Header above form */
-.form-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0.75rem;
-  background-color: var(--color-primary);
-  color: white;
-}
-
-/* Close button */
-.form-close-btn {
-  padding: 0.35rem;
-  border-radius: 50%;
-  background: none;
-  border: none;
-  cursor: pointer;
-  transition: background 0.3s;
-  display: flex;
-  align-items: center;
   justify-content: center;
+  gap: 0.6rem;
+  font-weight: 700;
+  font-size: 1rem;
+  box-shadow: 0 12px 28px rgba(255,79,154,0.12);
+  transition: transform .28s ease, box-shadow .28s ease;
+  cursor: pointer;
 }
 
-.form-close-btn:hover {
-  background-color: rgba(255, 255, 255, 0.2);
+/* hover / focus */
+.btn-primary:hover,
+.btn-large-pink:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(255,79,154,0.18);
+}
+.btn-primary:focus,
+.btn-large-pink:focus {
+  outline: 3px solid rgba(255,79,154,0.12);
+  outline-offset: 3px;
 }
 
-/* Form iframe itself */
-.form-embed-container iframe {
-  width: 100%;
-  height: 800px;
-  border: none;
-  background-color: white;
+/* form embed container */
+.form-embed-container{
+  margin-top:3rem; width:100%; max-width:1000px; margin-left:auto; margin-right:auto;
+  border: 3px solid #f3f4f6; border-radius:16px; overflow:hidden; box-shadow: 0 18px 40px rgba(16,24,40,0.06);
+  transition: transform .28s ease, box-shadow .28s ease;
 }
 
-/* ---------------------------------------------------------
-   RESPONSIVE STYLES
-   --------------------------------------------------------- */
+/* header inside embed */
+.form-header{ display:flex; justify-content:space-between; align-items:center; padding:.6rem 1rem; background:linear-gradient(90deg,var(--accent),var(--accent-2)); color:#fff; }
 
-@media (max-width: 768px) {
-  .heading-primary {
-    font-size: 1.9rem;
-  }
-  
-  .btn-large-pink {
-    font-size: 1.1rem;
-    padding: 0.85rem 1.5rem;
-  }
+/* close button */
+.form-close-btn{ background: rgba(255, 0, 0, 0.12); border:none; color:#fff; padding:.35rem; border-radius:9999px; cursor:pointer; transition: background .18s ease; }
+.form-close-btn:hover{ background: rgba(255,255,255,0.18); }
 
-  .form-embed-container iframe {
-    height: 650px;
-  }
+/* iframe */
+.form-embed-container iframe{ width:100%; border:0; height:720px; background:#fff; }
+
+/* responsive */
+@media (max-width:720px){
+  .form-embed-container iframe{ height:520px; }
+  .btn-large-pink{ width:100%; display:inline-flex; justify-content:center; }
 }
 
-@media (max-width: 480px) {
-  .heading-primary {
-    font-size: 1.7rem;
-  }
 
-  .text-lg {
-    font-size: 1rem;
-  }
+.icon-inline {
+  width: 20px;
+  height: 20px;
+  margin-right: 0.6rem; /* replaces the inline style */
+  flex-shrink: 0;
+  display: inline-block;
+}
 
-  .btn-large-pink {
-    width: 100%;
-    justify-content: center;
-  }
+/* ensure button inner text wraps nicely */
+.btn .btn-text,
+.btn-large-pink .btn-text {
+  display: inline-block;
+}
+
+/* make .form-embed-inner ensure padding around iframe */
+.form-embed-inner {
+  padding: 1rem;
+  background: #ffffff;
+}
+/* STRONG OVERRIDE: forces the booking CTA to be visible */
+.container .btn.btn-primary.btn-large-pink,
+.container > .btn-primary.btn-large-pink,
+.section-padding .btn.btn-primary.btn-large-pink {
+  background: linear-gradient(180deg, #ff4f9a 0%, #ff8fc2 100%) !important;
+  color: #ffffff !important;
+  border: none !important;
+  padding: 0.9rem 1.6rem !important;
+  font-weight: 700 !important;
+  font-size: 1rem !important;
+  box-shadow: 0 12px 30px rgba(255,79,154,0.14) !important;
+  transform: none !important;
+  opacity: 1 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  z-index: 9999 !important;
 }

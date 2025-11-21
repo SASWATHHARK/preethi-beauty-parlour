@@ -21,13 +21,13 @@ const ReviewCard = ({ quote, name, service }) => (
 
 const TestimonialsSection = React.forwardRef((props, ref) => {
     const reviews = [
-        { quote: "Absolutely loved the makeup. It lasted all night, and Preethi was so professional and attentive to detail.", name: "Swathiga.", service: "Bridal Makeup" },
-        { quote: "My hair color has never looked better! The staff is friendly, and the atmosphere is incredibly relaxing.", name: "Deepika.", service: "Global Hair Colour" },
+        { quote: "Absolutely loved the makeup. It lasted all night, and Preethi was so professional and attentive to detail.", name: "Swathiga", service: "Bridal Makeup" },
+        { quote: "My hair color has never looked better! The staff is friendly, and the atmosphere is incredibly relaxing.", name: "Deepika", service: "Global Hair Colour" },
         { quote: "Preethi did an amazing job! The makeup looked flawless in all my photos and felt so light on my skin.", name: "Harini", service: "Reception Makeup" },
-        { quote: "Loved her patience and creativity. She understood exactly what I wanted and delivered the perfect look.", name: "Janani", service: "Engagement Makeup" },
-        { quote: "The makeup was elegant and stayed fresh for hours. Preethi made the whole process so comfortable.", name: "Monisha", service: "Bridal Makeup" },
-        { quote: "Very professional and friendly. My hairstyle and makeup complemented each other beautifully!", name: "Keerthana", service: "Party Makeup" },
-        { quote: "Highly recommended! Preethi gave me a natural yet stunning look. Everyone loved it!", name: "Nivetha", service: "Photoshoot Makeup" },
+        { quote: "Loved her patience and creativity. She understood exactly what I wanted and delivered the perfect look.", name: "Subha Shree", service: "Engagement Makeup" },
+        { quote: "The makeup was elegant and stayed fresh for hours. Preethi made the whole process so comfortable.", name: "Pooja", service: "Bridal Makeup" },
+        { quote: "Very professional and friendly. My hairstyle and makeup complemented each other beautifully!", name: "Shona", service: "Party Makeup" },
+        { quote: "Highly recommended! Preethi gave me a natural yet stunning look. Everyone loved it!", name: "Pooja Nandhini", service: "Photoshoot Makeup" },
     ];
 
     return (

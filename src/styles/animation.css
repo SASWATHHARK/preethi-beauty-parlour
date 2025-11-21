@@ -1,0 +1,23 @@
+/* animations.css - small utilities for consistent transitions */
+
+:root{
+  --fast: 150ms;
+  --med: 280ms;
+}
+
+/* ease presets */
+.ease-smooth { transition-timing-function: cubic-bezier(.2,.9,.3,1); }
+
+/* utility fades (use on elements you want rendered later) */
+.fade-in { animation: fadeIn .5s var(--med) both; }
+.fade-up { animation: fadeInUp .5s var(--med) both; }
+
+/* keyframes (shared) */
+@keyframes fadeInUp {
+  0%{ opacity:0; transform: translateY(10px); }
+  100%{ opacity:1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  0%{ opacity:0; transform: scale(.98); }
+  100%{ opacity:1; transform: scale(1); }
+}

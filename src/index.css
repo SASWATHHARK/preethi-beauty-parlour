@@ -10,6 +10,8 @@
 @import './styles/_reset.css';
 @import './styles/_variables.css';
 @import './styles/_base.css';
+@import './styles/animations.css';
+
 :root {
     --color-primary: #83274E; /* Deep Berry/Wine */
     --color-accent: #D4AF37; /* Gold/Bronze */

@@ -1,152 +1,216 @@
-/* Navbar.css
-   Tailwind-free, mobile-responsive navbar with CTA
-*/
+/* Navbar.css - improved alignment: centered links, sticky top, no gaps */
 
-:root {
-  --color-primary: #e76f51;
-  --color-bg-navbar: #ffffff;
-  --color-text: #1f2937;
-  --color-muted: #6b7280;
-  --shadow-soft: 0 4px 14px rgba(0, 0, 0, 0.05);
+/* reset any default body margin that causes gaps */
+html, body {
+  margin: 0;
+  padding: 0;
 }
 
-/* Header container */
+/* theme vars (fallbacks) */
+:root {
+  --accent: var(--accent, #ff4f9a);
+  --bg: #ffffff;
+  --text: #111827;
+  --muted: #6b7280;
+  --shadow-soft: 0 6px 22px rgba(8,18,37,0.06);
+  --nav-height: 72px; /* change if you want a different navbar height */
+}
+
+/* Header container: sticky and spanning full width */
 .navbar-header {
-  background-color: var(--color-bg-navbar);
-  box-shadow: var(--shadow-soft);
-  padding: 1rem 0;
   position: sticky;
   top: 0;
-  z-index: 50;
+  left: 0;
+  right: 0;
+  background: var(--bg);
+  z-index: 9999;
+  box-shadow: var(--shadow-soft);
+  height: var(--nav-height);
+  display: flex;
+  align-items: center;    /* vertically center the container children */
+  width: 100%;
 }
 
-/* Layout wrapper */
+/* Wrapper that constrains width in the center */
 .navbar-container {
-  max-width: 1200px;
+  max-width: 1280px;
+  width: 100%;
   margin: 0 auto;
-  padding: 0 1rem;
-}
-
-/* Flex layout */
-.navbar-content {
+   padding-right: 3rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
+   position: relative;
 }
 
-/* Brand section */
+/* main content row inside the container (we keep this for structure) */
+.navbar-content {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  gap: 1rem;
+}
+
+/* BRAND: left aligned */
 .navbar-brand-wrapper {
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  flex: 0 0 auto; /* do not grow */
 }
 
 .navbar-icon {
-  width: 1.5rem;
-  height: 1.5rem;
-  color: var(--color-primary);
+  width: 24px;
+  height: 24px;
+  color: var(--accent);
+  flex-shrink: 0;
 }
 
 .navbar-logo-text {
-  font-size: 1.25rem;
+  font-size: 1.125rem;
   font-weight: 700;
-  color: var(--color-text);
+  color: var(--text);
+  line-height: 1;
 }
 
-/* Desktop nav links */
+/* NAV LINKS: centered between brand and CTA
+   Trick: make links container flex: 1 and use margin: 0 auto to center it.
+*/
 .navbar-links-desktop {
   display: flex;
-  gap: 1.25rem;
+  gap: 1.5rem;
+  align-items: center;
+  justify-content: center;
+  flex: 1 1 auto;      /* allows it to expand and center */
+  margin: 0 auto;      /* centers the links region in the available space */
 }
+ .navbar-links-desktop { display: none; }
+  .navbar-cta-desktop { display: none; }
 
+/* ensure individual link buttons don't grow and are vertically centered */
 .navbar-link-button {
   background: none;
   border: none;
   font-size: 1rem;
-  color: var(--color-text);
+  color: var(--text);
   cursor: pointer;
-  transition: color 0.2s ease;
+  padding: 10px 6px;
+  border-radius: 8px;
+  transition: color .18s ease, transform .18s ease, background .18s ease;
+  line-height: 1;
 }
 
-.navbar-link-button:hover {
-  color: var(--color-primary);
+.navbar-link-button:hover,
+.navbar-link-button:focus {
+  color: var(--accent);
+  transform: translateY(-2px);
+  background: rgba(255,79,154,0.03);
 }
 
-/* CTA button (Book Now) desktop only */
+/* CTA: keep on the right side (fixed size) */
 .navbar-cta-desktop {
-  display: block;
+  flex: 0 0 auto;
+  margin-left: 1rem;
 }
 
 .btn.btn-small-accent {
-  padding: 0.5rem 1rem;
-  background-color: var(--color-primary);
+  padding: 0.45rem 0.9rem;
+  background-color: var(--accent);
   color: white;
-  font-weight: 600;
+  font-weight: 700;
   border: none;
-  border-radius: 8px;
+  border-radius: 10px;
   cursor: pointer;
-  transition: background 0.3s ease;
+  box-shadow: 0 8px 24px rgba(255,79,154,0.12);
+  transition: transform .18s ease, box-shadow .18s ease;
 }
 
-.btn.btn-small-accent:hover {
-  background-color: #d65b47;
+.btn.btn-small-accent:hover,
+.btn.btn-small-accent:focus {
+  transform: translateY(-2px);
+  background-color: var(--accent);
+  box-shadow: 0 12px 32px rgba(255,79,154,0.14);
 }
 
-/* Mobile menu button */
+/* Mobile menu button (right side) */
 .menu-button {
   background: none;
   border: none;
   cursor: pointer;
-  padding: 0.4rem;
-  display: none;
+  padding: 6px;
+  display: none; /* shown at small screens through media queries */
 }
 
 .menu-icon {
-  width: 1.5rem;
-  height: 1.5rem;
+  width: 22px;
+  height: 22px;
   color: var(--accent);
+  pointer-events: none;
 }
 
-/* Mobile nav (collapsed by default) */
+/* Mobile collapsed links */
 .navbar-links-mobile {
   display: flex;
   flex-direction: column;
+  gap: 0;
   overflow: hidden;
   max-height: 0;
   opacity: 0;
-  transition: all 0.4s ease;
+  transition: max-height .35s ease, opacity .25s ease, margin .25s ease;
+  width: 100%;
 }
 
 .navbar-links-mobile.open {
-  max-height: 500px;
+  max-height: 400px;
   opacity: 1;
-  margin-top: 0.75rem;
+  margin-top: 0.6rem;
+  padding: 0.5rem 1rem 1rem 1rem;
+  background: var(--bg);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.03);
 }
 
 .navbar-link-button-mobile {
   background: none;
   border: none;
-  font-size: 1rem;
-  padding: 0.75rem;
   text-align: left;
-  color: var(--color-text);
-  cursor: pointer;
+  padding: 0.75rem;
   width: 100%;
-  transition: background 0.2s;
+  font-size: 1rem;
+  color: var(--text);
+  border-radius: 8px;
 }
 
 .navbar-link-button-mobile:hover {
-  background-color: rgba(0, 0, 0, 0.03);
+  background: rgba(0,0,0,0.03);
+  color: var(--accent);
 }
 
-/* Responsive behaviors */
-@media (max-width: 768px) {
-  .navbar-links-desktop,
-  .navbar-cta-desktop {
-    display: none;
-  }
+/* Responsive */
+@media (max-width: 880px) {
+  .navbar-links-desktop { display: none; }
+  .navbar-cta-desktop { display: none; }
+  .menu-button { display: block; margin-left: auto; } /* stays at right */
+  .navbar-container { padding: 0 0.75rem; }
+}
 
+/* To prevent hero being hidden under the fixed/sticky navbar, add top padding to the first section
+   You can keep this rule in HeroSection.css instead if you prefer.
+*/
+@media (max-width: 880px) {
+  /* keep menu-button visible on small screens */
   .menu-button {
-    display: block;
+    display: block !important;
+    position: absolute;
+    right: 1rem;            /* horizontal distance from right edge */
+    top: 50%;               /* vertically center inside navbar */
+    transform: translateY(-50%);
+    z-index: 9999;          /* above other content */
+    background: none;
+    border: none;
+    padding: 8px;
   }
+}
+body .hero-container,
+.hero-container {
+  padding-top: calc(var(--nav-height) + 1.25rem);
 }
