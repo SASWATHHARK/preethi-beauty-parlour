@@ -34,7 +34,7 @@ const HeroSection = React.forwardRef((props, ref) => {
             <a
               href="#booking"
               className="btn btn-large-pink hero-cta"
-              aria-label="Explore Services"
+              aria-label="Book and Appointment"
             >
               Explore Services
               <ArrowRight className="hero-cta-icon" />
