@@ -12,6 +12,7 @@ const HeroSection = React.forwardRef((props, ref) => {
       <div className="hero-content-wrapper">
 
         {/* LEFT TEXT AREA */}
+        {/* LEFT TEXT AREA */}
         <div className="hero-text-area">
           <p className="hero-tagline">
             <Sparkles className="hero-tagline-icon" />
@@ -19,7 +20,7 @@ const HeroSection = React.forwardRef((props, ref) => {
           </p>
 
           <h1 className="hero-title">
-            Preethi's Parlour: <br className="hero-title-break" />
+            Preethi's Makeup and Beauty Parlour: <br className="hero-title-break" />
             Where <span className="hero-title-highlight">Beauty Meets Art.</span>
           </h1>
 
@@ -28,11 +29,15 @@ const HeroSection = React.forwardRef((props, ref) => {
             in hair and makeup. Book your next glow-up now.
           </p>
 
-          <a href="#booking" className="btn btn-large-pink hero-cta" aria-label="Explore Services">
-            Explore Services
-            <ArrowRight className="hero-cta-icon" />
-          </a>
+          {/* WRAP BUTTON HERE */}
+          <div className="hero-cta-row">
+            <a href="#booking" className="btn btn-large-pink hero-cta" aria-label="Explore Services">
+              Explore Services
+              <ArrowRight className="hero-cta-icon" />
+            </a>
+          </div>
         </div>
+
 
         {/* RIGHT IMAGE BOX */}
         <div className="hero-image-box" aria-hidden="true">

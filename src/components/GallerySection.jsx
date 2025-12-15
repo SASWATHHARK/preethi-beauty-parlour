@@ -16,7 +16,7 @@ const GallerySection = React.forwardRef((props, ref) => {
     'Hair Styled',
     'Facial & Skin Care',
     'Mehendi Design',
-    'Saree Draping',
+    'Saree Drapping',
     'Bridal Look'
   ];
 
@@ -129,17 +129,7 @@ const GallerySection = React.forwardRef((props, ref) => {
         </div>
 
         {/* optional small preview grid */}
-        <div className="gallery-grid-layout" aria-hidden="true">
-          {labels.map((lbl, idx) => (
-            <article key={idx} className="gallery-card small">
-              <div className="gallery-card-overlay small">
-                <Camera className="gallery-card-icon" />
-                <p className="gallery-card-label">{lbl}</p>
-              </div>
-              <div className="gallery-placeholder" />
-            </article>
-          ))}
-        </div>
+        
       </div>
     </section>
   );

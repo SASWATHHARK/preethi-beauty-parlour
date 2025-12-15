@@ -11,7 +11,7 @@ const Footer = () => {
         <div className="footer-brand">
           <div className="footer-brand-row">
             <Sparkles className="footer-icon" />
-            <span className="footer-brand-text">Preethi's Parlour</span>
+            <span className="footer-brand-text">Preethi's Makeup and Beauty Parlour</span>
           </div>
 
           <p className="footer-text">
@@ -56,8 +56,8 @@ const Footer = () => {
         <div>
           <h4 className="footer-heading">Hours</h4>
           <ul className="footer-list">
-            <li className="footer-text">Mon - Fri: 10:00 AM - 8:30 PM</li>
-            <li className="footer-text">Saturday & Sunday: 10:00 AM - 6:00 PM</li>
+            <li className="footer-text">Monday - Sunday:<br></br> 10:00 AM - 8:30 PM</li>
+           
           </ul>
         </div>
 
@@ -80,7 +80,7 @@ const Footer = () => {
 
       {/* Footer Bottom */}
       <div className="footer-bottom">
-        © {new Date().getFullYear()} Preethi's Parlour. All Rights Reserved.
+        © {new Date().getFullYear()} Preethi's Makeup and Beauty Parlour. All Rights Reserved.
       </div>
     </footer>
   );

@@ -13,7 +13,7 @@ const Navbar = ({ sections, scrollToRef }) => {
           {/* Brand */}
           <div className="navbar-brand-wrapper">
             <Sparkles className="navbar-icon" />
-            <span className="navbar-logo-text">Preethi's Parlour</span>
+            <span className="navbar-logo-text">Preethi's Makeup and Beauty Parlour</span>
           </div>
 
           {/* Desktop Links */}

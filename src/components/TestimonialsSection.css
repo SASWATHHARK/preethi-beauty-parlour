@@ -29,3 +29,28 @@
 .review-quote{ font-size:1.03rem; color:#111827; line-height:1.6; margin-bottom:1rem; }
 .review-meta{ display:flex; justify-content:center; gap:1rem; color:var(--muted); font-size:0.95rem; }
 .review-name{ font-weight:700; color:#111827; }
+.star-icon {
+  width: 20px;
+  height: 20px;
+}
+
+/* Filled star */
+.star-full {
+  fill: #ff4fa3;
+  stroke: #ff4fa3;
+}
+
+/* Empty star */
+.star-empty {
+  stroke: #ff4fa3;
+  fill: transparent;
+  opacity: 0.4;
+}
+
+/* Half star using gradient */
+.star-half {
+  stroke: #ff4fa3;
+  fill: url(#half-fill);
+}
+
+/* If gradient doesn't apply, you can just keep it slightly dim */

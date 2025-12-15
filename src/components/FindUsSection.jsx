@@ -11,9 +11,9 @@ const FindUsSection = ({ imageSrc }) => {
   // finalImage will prefer prop, then imported asset, then null
   const finalImage = imageSrc || previewImg || null;
 
-  const lat = 10.996801955657424;
-  const lng = 77.34504697481902;
-  const embedUrl = `https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3912.403194424817!2d${lng}!3d${lat}!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba90f21eb322afb%3A0x55882e6bb343843b!2sPreethi%20Beauty%20Parlour!5e0!3m2!1sen!2sin!4v1732192200000!5m2!1sen!2sin`;
+  const lat = 11.123944;
+  const lng = 77.327472;
+  const embedUrl = `https://www.google.com/maps?q=${lat},${lng}&hl=en&z=18&output=embed`;
   const directionsUrl = `https://www.google.com/maps/dir/?api=1&destination=${lat},${lng}`;
 
   return (
@@ -28,7 +28,7 @@ const FindUsSection = ({ imageSrc }) => {
               <MapPin className="meta-icon" aria-hidden="true" />
               <div>
                 <div className="meta-label">Address</div>
-                <div className="meta-text">123 Luxurious Lane, Anna Nagar, Tirupur - 641603</div>
+                <div className="meta-text">14/29 First Cross Street Valayankadu V.O.C Nagar, Tirupur - 641603</div>
               </div>
             </div>
 
@@ -53,9 +53,7 @@ const FindUsSection = ({ imageSrc }) => {
               <div>
                 <div className="meta-label">Hours</div>
                 <div className="meta-text">
-                  Mon–Fri: 10:00 AM – 8:00 PM<br/>
-                  Saturday: 10:00 AM – 6:00 PM<br/>
-                  Sunday: Closed
+                  Monday–Sunday: <strong>10:00 AM – 8:30 PM</strong>
                 </div>
               </div>
             </div>
