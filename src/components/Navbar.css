@@ -22,9 +22,11 @@ html, body {
   top: 0;
   left: 0;
   right: 0;
-  background: var(--bg);
+  background: rgba(255,255,255,0.94);
+  backdrop-filter: blur(10px);
   z-index: 9999;
   box-shadow: var(--shadow-soft);
+  border-bottom: 1px solid rgba(0,0,0,0.05);
   height: var(--nav-height);
   display: flex;
   align-items: center;    /* vertically center the container children */
@@ -36,7 +38,7 @@ html, body {
   max-width: 1280px;
   width: 100%;
   margin: 0 auto;
-   padding-right: 3rem;
+  padding: 0 1.5rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -53,16 +55,21 @@ html, body {
 
 /* BRAND: left aligned */
 .navbar-brand-wrapper {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.7rem;
   flex: 0 0 auto; /* do not grow */
+  text-decoration: none;
 }
 
-.navbar-icon {
-  width: 24px;
-  height: 24px;
-  color: var(--accent);
+.navbar-logo {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  object-fit: contain;
+  border: 1px solid rgba(0,0,0,0.05);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.06);
+  background: #fff;
   flex-shrink: 0;
 }
 

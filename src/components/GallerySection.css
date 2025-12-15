@@ -15,7 +15,12 @@
   background: #fff;
   box-shadow: 0 20px 40px rgba(16,24,40,0.06);
 }
-
+@media (min-width: 1024px) {
+  .slider {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+}
 /* track */
 .slides-wrapper {
   display: flex;
@@ -31,13 +36,18 @@
   align-items: center;
   justify-content: center;
 
-  height: 520px;   /* ⬆ Increased height */
+  aspect-ratio: 4 / 5;   /* Desktop */
+  max-height: 520px;  /* ⬆ Increased height */
   background: #fafafa;
 }
 
 /* responsive heights */
 @media (max-width: 768px) {
-  .slide { height: 380px; }  /* ⬆ Increased mobile height */
+  .slide { 
+    aspect-ratio: 4 / 5;  /* Taller for hair visibility */
+    max-height: 420px;
+
+   }  /* ⬆ Increased mobile height */
 }
 
 /* image fill */
@@ -46,6 +56,7 @@
   height: 100%;
   object-fit: cover;
   display: block;
+  object-position: center center;
   filter: saturate(.98);
 }
 

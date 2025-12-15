@@ -2,7 +2,7 @@
 import React from 'react';
 import { Camera, Film } from 'lucide-react';
 import imgHair from '../assets/hairstyled.jpg';
-import imgFacial from '../assets/preview.jpg';
+import imgFacial from '../assets/facial.jpg';
 import imgMehendi from '../assets/mehendi.jpeg';
 import imgSaree from '../assets/saree-draping.jpg';
 import imgBridal from '../assets/bridal-look.webp';

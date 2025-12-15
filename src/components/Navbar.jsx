@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { Sparkles, Menu, X } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import './Navbar.css';
+import logo from '../assets/preethi-logo.jpg';
 
 const Navbar = ({ sections, scrollToRef }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -11,10 +12,10 @@ const Navbar = ({ sections, scrollToRef }) => {
       <div className="navbar-container">
         <div className="navbar-content">
           {/* Brand */}
-          <div className="navbar-brand-wrapper">
-            <Sparkles className="navbar-icon" />
+          <a className="navbar-brand-wrapper" href="#hero" aria-label="Go to hero">
+            <img src={logo} alt="Preethi's logo" className="navbar-logo" loading="lazy" />
             <span className="navbar-logo-text">Preethi's Makeup and Beauty Parlour</span>
-          </div>
+          </a>
 
           {/* Desktop Links */}
           <nav className="navbar-links-desktop">
