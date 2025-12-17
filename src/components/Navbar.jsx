@@ -1,26 +1,40 @@
-import React, { useState } from 'react';
-import { Menu, X } from 'lucide-react';
-import './Navbar.css';
-import logo from '../assets/preethi-logo.jpg';
+import React, { useState } from "react";
+import { Menu, X } from "lucide-react";
+import "./Navbar.css";
+import logo from "../assets/preethi-logo.jpg";
 
 const Navbar = ({ sections, scrollToRef }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const bookNowRef = sections.find(s => s.name === 'Book Now')?.ref;
+  const bookNowRef = sections.find((s) => s.name === "Book Now")?.ref;
 
   return (
     <header className="navbar-header">
       <div className="navbar-container">
         <div className="navbar-content">
           {/* Brand */}
-          <a className="navbar-brand-wrapper" href="#hero" aria-label="Go to hero">
-            <img src={logo} alt="Preethi's logo" className="navbar-logo" loading="lazy" />
-            <span className="navbar-logo-text">Preethi's Makeup and Beauty Parlour</span>
+          <a
+            className="navbar-brand-wrapper"
+            href="#hero"
+            aria-label="Go to hero"
+          >
+            <img
+              src={logo}
+              alt="Preethi's logo"
+              className="navbar-logo"
+              loading="lazy"
+            />
+            <span className="navbar-logo-text">
+              <span className="navbar-logo-text-full">
+                Preethi's Makeup and Beauty Parlour
+              </span>
+              <span className="navbar-logo-text-short">Preethi's Beauty</span>
+            </span>
           </a>
 
           {/* Desktop Links */}
           <nav className="navbar-links-desktop">
             {sections
-              .filter(s => s.name !== 'Book Now')
+              .filter((s) => s.name !== "Book Now")
               .map(({ name, ref }) => (
                 <button
                   key={name}
@@ -49,14 +63,18 @@ const Navbar = ({ sections, scrollToRef }) => {
             aria-expanded={isOpen}
             aria-controls="mobile-menu"
           >
-            {isOpen ? <X className="menu-icon" /> : <Menu className="menu-icon" />}
+            {isOpen ? (
+              <X className="menu-icon" />
+            ) : (
+              <Menu className="menu-icon" />
+            )}
           </button>
         </div>
 
         {/* Mobile Links */}
         <div
           id="mobile-menu"
-          className={`navbar-links-mobile ${isOpen ? 'open' : ''}`}
+          className={`navbar-links-mobile ${isOpen ? "open" : ""}`}
         >
           {sections.map(({ name, ref }) => (
             <button

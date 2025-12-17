@@ -178,12 +178,87 @@
 @media (max-width: 980px) {
   .findus-container {
     grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
   .map-frame { height: 420px; }
 }
 
-@media (max-width: 520px) {
-  .map-frame { height: 320px; }
-  .map-toolbar { padding: .6rem; }
-  .btn-directions, .btn-call { padding: .6rem .75rem; font-size: 0.95rem; }
+@media (max-width: 768px) {
+  .findus-section {
+    padding: 3rem 0.75rem;
+  }
+  
+  .findus-container {
+    gap: 1.5rem;
+  }
+  
+  .findus-info {
+    padding: 0.5rem;
+  }
+  
+  .findus-title {
+    font-size: clamp(1.5rem, 4vw, 1.75rem);
+  }
+  
+  .findus-cta-row {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .btn-directions,
+  .btn-call {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+  }
+  
+  .map-frame {
+    height: 380px;
+  }
+}
+
+@media (max-width: 480px) {
+  .findus-section {
+    padding: 2.5rem 0.5rem;
+  }
+  
+  .findus-container {
+    gap: 1.25rem;
+  }
+  
+  .findus-title {
+    font-size: 1.5rem;
+  }
+  
+  .meta-label,
+  .meta-text {
+    font-size: 0.9rem;
+  }
+  
+  .map-frame {
+    height: 320px;
+  }
+  
+  .map-toolbar {
+    padding: 0.6rem;
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: flex-start;
+  }
+  
+  .map-label {
+    font-size: 0.9rem;
+  }
+  
+  .map-directions-top {
+    width: 100%;
+    text-align: center;
+    padding: 0.5rem;
+  }
+  
+  .btn-directions,
+  .btn-call {
+    padding: 0.6rem 0.75rem;
+    font-size: 0.9rem;
+  }
 }
