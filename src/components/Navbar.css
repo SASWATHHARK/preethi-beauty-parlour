@@ -1,332 +1,103 @@
-/* Navbar.css - improved alignment: centered links, sticky top, no gaps */
-
-/* reset any default body margin that causes gaps */
-html,
-body {
-  margin: 0;
-  padding: 0;
+/* Top bar */
+main {
+  padding-top: 60px;
 }
 
-/* theme vars (fallbacks) */
-:root {
-  --accent: var(--accent, #ff4f9a);
-  --bg: #ffffff;
-  --text: #111827;
-  --muted: #6b7280;
-  --shadow-soft: 0 6px 22px rgba(8, 18, 37, 0.06);
-  --nav-height: 72px; /* change if you want a different navbar height */
+.top-navbar {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  z-index: 1001;
 }
 
-/* Header container: sticky and spanning full width */
-.navbar-header {
-  position: sticky;
+.menu-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* Side Drawer */
+.side-drawer {
+  position: fixed;
   top: 0;
   left: 0;
-  right: 0;
-  background: rgba(255, 255, 255, 0.94);
-  backdrop-filter: blur(10px);
-  z-index: 9999;
-  box-shadow: var(--shadow-soft);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-  height: var(--nav-height);
+  width: 260px;
+  height: 100vh;
+  background: #fff;
+  padding: 24px;
+  z-index: 2000;
+
   display: flex;
-  align-items: center; /* vertically center the container children */
-  width: 100%;
+  flex-direction: column;
+
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+  overflow: hidden;
 }
 
-/* Wrapper that constrains width in the center */
-.navbar-container {
-  max-width: 1280px;
-  width: 100%;
-  margin: 0 auto;
-  padding: 0 1.5rem;
+.side-drawer.open {
+  transform: translateX(0);
+}
+
+/* Close button */
+.close-btn {
+  align-self: flex-end;
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+/* Menu items */
+.side-drawer nav {
+  margin-top: 60px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.side-drawer nav a {
+  text-decoration: none;
+  font-size: 18px;
+  color: #333;
+  font-weight: 500;
+}
+
+/* Overlay */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 1000;
+}
+.drawer-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  position: relative;
+  margin-bottom: 30px;
 }
 
-/* main content row inside the container (we keep this for structure) */
-.navbar-content {
+.brand {
   display: flex;
   align-items: center;
-  width: 100%;
-  gap: 1rem;
-  justify-content: space-between; /* push menu button to right */
+  gap: 10px;
 }
 
-/* BRAND: left aligned */
-.navbar-brand-wrapper {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.7rem;
-  flex: 0 1 auto; /* don't grow, but can shrink */
-  min-width: 0; /* allow flex children to shrink below content size */
-  text-decoration: none;
-  margin-right: auto; /* push menu button to the right */
-}
-
-.navbar-logo {
-  width: 44px;
-  height: 44px;
-  border-radius: 12px;
+.brand img {
+  width: 40px;
+  height: 40px;
   object-fit: contain;
-  border: 1px solid rgba(0, 0, 0, 0.05);
-  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.06);
-  background: #fff;
-  flex-shrink: 0;
 }
 
-.navbar-logo-text {
-  font-size: 1.125rem;
-  font-weight: 700;
-  color: var(--text);
-  line-height: 1.2;
-  display: flex;
-  align-items: center;
+.brand span {
+  font-size: 16px;
+  font-weight: 600;
+  color: #222;
 }
-
-.navbar-logo-text-full {
-  display: inline;
-}
-
-.navbar-logo-text-short {
-  display: none;
-}
-
-/* NAV LINKS: centered between brand and CTA
-   Trick: make links container flex: 1 and use margin: 0 auto to center it.
-*/
-.navbar-links-desktop {
-  display: flex;
-  gap: 1.5rem;
-  align-items: center;
-  justify-content: center;
-  flex: 1 1 auto; /* allows it to expand and center */
-  margin: 0 auto; /* centers the links region in the available space */
-}
-.navbar-links-desktop {
-  display: none;
-}
-.navbar-cta-desktop {
-  display: none;
-}
-
-/* ensure individual link buttons don't grow and are vertically centered */
-.navbar-link-button {
+.close-btn {
   background: none;
   border: none;
-  font-size: 1rem;
-  color: var(--text);
+  font-size: 22px;
   cursor: pointer;
-  padding: 10px 6px;
-  border-radius: 8px;
-  transition: color 0.18s ease, transform 0.18s ease, background 0.18s ease;
-  line-height: 1;
-}
-
-.navbar-link-button:hover,
-.navbar-link-button:focus {
-  color: var(--accent);
-  transform: translateY(-2px);
-  background: rgba(255, 79, 154, 0.03);
-}
-
-/* CTA: keep on the right side (fixed size) */
-.navbar-cta-desktop {
-  flex: 0 0 auto;
-  margin-left: 1rem;
-}
-
-.btn.btn-small-accent {
-  padding: 0.45rem 0.9rem;
-  background-color: var(--accent);
-  color: white;
-  font-weight: 700;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-  box-shadow: 0 8px 24px rgba(255, 79, 154, 0.12);
-  transition: transform 0.18s ease, box-shadow 0.18s ease;
-}
-
-.btn.btn-small-accent:hover,
-.btn.btn-small-accent:focus {
-  transform: translateY(-2px);
-  background-color: var(--accent);
-  box-shadow: 0 12px 32px rgba(255, 79, 154, 0.14);
-}
-
-/* Mobile menu button (right side) */
-.menu-button {
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 8px;
-  display: none; /* shown at small screens through media queries */
-  flex-shrink: 0; /* never shrink */
-  margin-left: 0.75rem; /* spacing from brand */
-  z-index: 10000;
-  position: relative;
-}
-
-.menu-icon {
-  width: 24px;
-  height: 24px;
-  color: var(--accent);
-  pointer-events: none;
-}
-
-/* Mobile collapsed links */
-.navbar-links-mobile {
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-  overflow: hidden;
-  max-height: 0;
-  opacity: 0;
-  transition: max-height 0.35s ease, opacity 0.25s ease, margin 0.25s ease;
-  width: 100%;
-}
-
-.navbar-links-mobile.open {
-  max-height: 400px;
-  opacity: 1;
-  margin-top: 0.6rem;
-  padding: 0.5rem 1rem 1rem 1rem;
-  background: var(--bg);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
-}
-
-.navbar-link-button-mobile {
-  background: none;
-  border: none;
-  text-align: left;
-  padding: 0.75rem;
-  width: 100%;
-  font-size: 1rem;
-  color: var(--text);
-  border-radius: 8px;
-}
-
-.navbar-link-button-mobile:hover {
-  background: rgba(0, 0, 0, 0.03);
-  color: var(--accent);
-}
-
-/* Responsive - Tablet and below */
-@media (max-width: 880px) {
-  .navbar-links-desktop {
-    display: none;
-  }
-  .navbar-cta-desktop {
-    display: none;
-  }
-  .menu-button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .navbar-container {
-    padding: 0 1rem;
-  }
-
-  /* Mobile brand adjustments */
-  .navbar-brand-wrapper {
-    gap: 0.6rem;
-    flex: 1 1 auto;
-    min-width: 0;
-  }
-
-  .navbar-logo {
-    width: 40px;
-    height: 40px;
-  }
-
-  .navbar-logo-text {
-    font-size: 1rem;
-  }
-
-  /* Show short text on medium screens */
-  .navbar-logo-text-full {
-    display: none;
-  }
-  .navbar-logo-text-short {
-    display: inline;
-  }
-}
-
-/* Small mobile screens */
-@media (max-width: 640px) {
-  .navbar-container {
-    padding: 0 0.75rem;
-  }
-
-  .navbar-brand-wrapper {
-    gap: 0.5rem;
-  }
-
-  .navbar-logo {
-    width: 36px;
-    height: 36px;
-  }
-
-  .navbar-logo-text {
-    font-size: 0.9rem;
-  }
-
-  .menu-button {
-    padding: 6px;
-  }
-
-  .menu-icon {
-    width: 22px;
-    height: 22px;
-  }
-}
-
-/* Extra small screens */
-@media (max-width: 480px) {
-  .navbar-container {
-    padding: 0 0.5rem;
-  }
-
-  .navbar-brand-wrapper {
-    gap: 0.4rem;
-  }
-
-  .navbar-logo {
-    width: 32px;
-    height: 32px;
-  }
-
-  .navbar-logo-text {
-    font-size: 0.85rem;
-  }
-
-  .menu-button {
-    padding: 5px;
-    margin-left: 0.5rem;
-  }
-
-  .menu-icon {
-    width: 20px;
-    height: 20px;
-  }
-}
-
-/* Very small screens */
-@media (max-width: 360px) {
-  .navbar-logo-text {
-    font-size: 0.75rem;
-  }
-
-  .navbar-logo {
-    width: 28px;
-    height: 28px;
-  }
-}
-body .hero-container,
-.hero-container {
-  padding-top: calc(var(--nav-height) + 1.25rem);
+  color: #ff5f8d;
 }

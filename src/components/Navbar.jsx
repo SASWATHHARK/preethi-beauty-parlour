@@ -1,97 +1,53 @@
-import React, { useState } from "react";
-import { Menu, X } from "lucide-react";
-import "./Navbar.css";
+import { useState } from "react";
+import { Menu } from "lucide-react";
 import logo from "../assets/preethi-logo.jpg";
+import "./Navbar.css";
 
-const Navbar = ({ sections, scrollToRef }) => {
-  const [isOpen, setIsOpen] = useState(false);
-  const bookNowRef = sections.find((s) => s.name === "Book Now")?.ref;
+export default function Navbar() {
+  const [open, setOpen] = useState(false);
 
   return (
-    <header className="navbar-header">
-      <div className="navbar-container">
-        <div className="navbar-content">
-          {/* Brand */}
-          <a
-            className="navbar-brand-wrapper"
-            href="#hero"
-            aria-label="Go to hero"
-          >
-            <img
-              src={logo}
-              alt="Preethi's logo"
-              className="navbar-logo"
-              loading="lazy"
-            />
-            <span className="navbar-logo-text">
-              <span className="navbar-logo-text-full">
-                Preethi's Makeup and Beauty Parlour
-              </span>
-              <span className="navbar-logo-text-short">Preethi's Beauty</span>
-            </span>
-          </a>
+    <>
+      {/* Top Navbar Button */}
+      <div className="top-navbar">
+        <button className="menu-btn" onClick={() => setOpen(true)}>
+          <Menu size={28} />
+        </button>
+      </div>
 
-          {/* Desktop Links */}
-          <nav className="navbar-links-desktop">
-            {sections
-              .filter((s) => s.name !== "Book Now")
-              .map(({ name, ref }) => (
-                <button
-                  key={name}
-                  onClick={() => scrollToRef(ref)}
-                  className="navbar-link-button"
-                >
-                  {name}
-                </button>
-              ))}
-          </nav>
-
-          {/* CTA Button (Desktop) */}
-          <div className="navbar-cta-desktop">
-            <button
-              onClick={() => scrollToRef(bookNowRef)}
-              className="btn btn-small-accent"
-            >
-              Book Now
-            </button>
+      {/* Side Drawer */}
+      <div className={`side-drawer ${open ? "open" : ""}`}>
+        {/* Drawer Header */}
+        <div className="drawer-header">
+          <div className="brand">
+            <img src={logo} alt="Preethi Beauty Logo" />
+            <span>Preethi's Beauty Parlour</span>
           </div>
 
-          {/* Mobile Menu Button */}
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className="menu-button"
-            aria-expanded={isOpen}
-            aria-controls="mobile-menu"
-          >
-            {isOpen ? (
-              <X className="menu-icon" />
-            ) : (
-              <Menu className="menu-icon" />
-            )}
+          <button className="close-btn" onClick={() => setOpen(false)}>
+            ✕
           </button>
         </div>
 
-        {/* Mobile Links */}
-        <div
-          id="mobile-menu"
-          className={`navbar-links-mobile ${isOpen ? "open" : ""}`}
-        >
-          {sections.map(({ name, ref }) => (
-            <button
-              key={name}
-              onClick={() => {
-                scrollToRef(ref);
-                setIsOpen(false);
-              }}
-              className="navbar-link-button-mobile"
-            >
-              {name}
-            </button>
-          ))}
-        </div>
+        {/* Navigation */}
+        <nav>
+          <a href="#gallery" onClick={() => setOpen(false)}>
+            Gallery
+          </a>
+          <a href="#reviews" onClick={() => setOpen(false)}>
+            Reviews
+          </a>
+          <a href="#findus" onClick={() => setOpen(false)}>
+            Find Us
+          </a>
+          <a href="#book" onClick={() => setOpen(false)}>
+            Book Now
+          </a>
+        </nav>
       </div>
-    </header>
-  );
-};
 
-export default Navbar;
+      {/* Overlay */}
+      {open && <div className="overlay" onClick={() => setOpen(false)} />}
+    </>
+  );
+}
