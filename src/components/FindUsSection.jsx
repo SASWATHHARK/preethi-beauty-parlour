@@ -21,7 +21,7 @@ const FindUsSection = ({ imageSrc }) => {
       <div className="findus-container">
         <div className="findus-info">
           <h2 id="findus-heading" className="findus-title">Find Us</h2>
-          <p className="findus-sub">Visit Preethi's Parlour for bespoke styling and professional care.</p>
+          <p className="findus-sub">Visit Preethi's Makeup and Parlour for bespoke styling and professional care.</p>
 
           <div className="findus-meta">
             <div className="meta-row">
@@ -94,7 +94,7 @@ const FindUsSection = ({ imageSrc }) => {
 
           <div className="map-frame">
             <iframe
-              title="Preethi's Parlour location"
+              title="Preethi's Makeup and Parlour location"
               src={embedUrl}
               loading="lazy"
               allowFullScreen

@@ -18,7 +18,7 @@ export default function Navbar() {
         <div className="nav-container">
           <div className="top-brand">
             <img src={logo} alt="Preethi Beauty Logo" />
-            <span>Preethi's Beauty Parlour</span>
+            <span>Preethi's Makeup and Beauty Parlour</span>
           </div>
 
           <button className="menu-btn" onClick={() => setOpen(true)}>
@@ -32,7 +32,7 @@ export default function Navbar() {
         <div className="drawer-header">
           <div className="brand">
             <img src={logo} alt="Preethi Beauty Logo" />
-            <span>Preethi's Beauty Parlour</span>
+            <span>Preethi's Makeup and Beauty Parlour</span>
           </div>
 
           <button className="close-btn" onClick={() => setOpen(false)}>

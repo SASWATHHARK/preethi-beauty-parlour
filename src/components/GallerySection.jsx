@@ -5,19 +5,21 @@ import imgHair from '../assets/hairstyled.jpg';
 import imgFacial from '../assets/facial.jpg';
 import imgMehendi from '../assets/mehendi.jpeg';
 import imgSaree from '../assets/saree-draping.jpg';
-import imgBridal from '../assets/bridal-look.webp';
+import imgBridal from '../assets/bridal-look.jpg';
+import imgBrideMaid from '../assets/bride-maid.jpg';
 import './GallerySection.css';
 
 const GallerySection = React.forwardRef((props, ref) => {
   // Use imported images — Vite will resolve and copy them for you
-  const images = [imgHair, imgFacial, imgMehendi, imgSaree, imgBridal];
+  const images = [imgHair, imgFacial, imgMehendi, imgSaree, imgBridal,imgBrideMaid];
 
   const labels = [
     'Hair Styled',
     'Facial & Skin Care',
     'Mehendi Design',
     'Saree Drapping',
-    'Bridal Look'
+    'Bridal Look',
+    'Bride Maid'
   ];
 
   const [index, setIndex] = React.useState(0);
