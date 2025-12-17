@@ -7,27 +7,34 @@
 @tailwind components;
 @tailwind utilities;
 
-@import './styles/_reset.css';
-@import './styles/_variables.css';
-@import './styles/_base.css';
-@import './styles/animations.css';
+@import "./styles/_reset.css";
+@import "./styles/_variables.css";
+@import "./styles/_base.css";
+@import "./styles/animations.css";
 
 :root {
-    --color-primary: #83274E; /* Deep Berry/Wine */
-    --color-accent: #D4AF37; /* Gold/Bronze */
-    --color-background: #FDFDFD; 
-    --color-text: #333333;
+  --color-primary: #83274e; /* Deep Berry/Wine */
+  --color-accent: #d4af37; /* Gold/Bronze */
+  --color-background: #fdfdfd;
+  --color-text: #333333;
+}
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  overflow-x: hidden;
 }
 
 /* Base HTML/Body styles */
 html {
-    scroll-behavior: smooth;
-    font-family: 'Inter', sans-serif;
+  scroll-behavior: smooth;
+  font-family: "Inter", sans-serif;
 }
 
 body {
-    color: var(--color-text);
-    background-color: var(--color-background);
-    overflow-x: hidden; 
+  color: var(--color-text);
+  background-color: var(--color-background);
+  overflow-x: hidden;
 }
-

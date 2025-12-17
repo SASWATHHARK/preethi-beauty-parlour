@@ -15,15 +15,17 @@ export default function Navbar() {
     <>
       {/* Top Navbar */}
       <header className="top-navbar">
-        <div className="top-brand">
-          <img src={logo} alt="Preethi Beauty Logo" />
-          <span>Preethi's Beauty Parlour</span>
-        </div>
+        <div className="nav-container">
+          <div className="top-brand">
+            <img src={logo} alt="Preethi Beauty Logo" />
+            <span>Preethi's Beauty Parlour</span>
+          </div>
 
-        <button className="menu-btn" onClick={() => setOpen(true)}>
-          <Menu size={28} />
-        </button>
-      </header>
+          <button className="menu-btn" onClick={() => setOpen(true)}>
+            <Menu size={28} />
+          </button>
+        </div>
+</header>
 
       {/* Side Drawer */}
       <div className={`side-drawer ${open ? "open" : ""}`}>

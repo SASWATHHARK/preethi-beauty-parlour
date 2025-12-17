@@ -2,12 +2,19 @@
 main {
   padding-top: 60px;
 }
+html {
+  scrollbar-gutter: stable;
+}
 
 .top-navbar {
   position: fixed;
-  top: 16px;
-  right: 16px;
-  z-index: 1001;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background: #fff;
+  z-index: 1500;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
 .menu-btn {
@@ -101,23 +108,7 @@ main {
   cursor: pointer;
   color: #ff5f8d;
 }
-.top-navbar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 60px;
 
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
-  padding: 0 16px;
-  background: #ffffff;
-  z-index: 1500;
-
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-}
 .top-brand {
   display: flex;
   align-items: center;
@@ -139,4 +130,15 @@ main {
   background: none;
   border: none;
   cursor: pointer;
+}
+.nav-container {
+  max-width: 1200px; /* SAME as your page content */
+  margin: 0 auto; /* center it */
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 16px;
 }
