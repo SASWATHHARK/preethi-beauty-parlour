@@ -3,14 +3,15 @@
 |--------------------------------------------------------------------------
 | This file is kept minimal, focused only on core setup and global imports.
 */
+
+
+
+@import "./styles/animation.css";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@import "./styles/_reset.css";
-@import "./styles/_variables.css";
-@import "./styles/_base.css";
-@import "./styles/animations.css";
 
 :root {
   --color-primary: #83274e; /* Deep Berry/Wine */

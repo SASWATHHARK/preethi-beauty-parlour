@@ -1,8 +1,13 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
-// https://vite.dev/config/
 export default defineConfig({
-   base: '/preethi-beauty-parlour/',
   plugins: [react()],
+  base: '/preethi-beauty-parlour/',
+  css: {
+    transformer: 'postcss',
+  },
+  build: {
+    cssMinify: false, // 🔥 disables LightningCSS completely
+  },
 })
