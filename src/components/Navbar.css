@@ -23,6 +23,50 @@ html {
   cursor: pointer;
 }
 
+/* WhatsApp Button */
+.whatsapp-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #25D366;
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+  border: 1px solid transparent;
+  transition: all 0.2s ease;
+  margin-left: auto; /* Push to right, before menu */
+  margin-right: 12px;
+  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.2);
+}
+
+.whatsapp-btn:hover {
+  background-color: #20bd5a;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(37, 211, 102, 0.3);
+}
+
+.whatsapp-icon {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+}
+
+@media (max-width: 600px) {
+  .whatsapp-text {
+    display: none;
+  }
+  .whatsapp-btn {
+    padding: 8px;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    justify-content: center;
+  }
+}
+
 /* Side Drawer */
 .side-drawer {
   position: fixed;
